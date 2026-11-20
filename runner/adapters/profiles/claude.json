@@ -1,0 +1,39 @@
+{
+ "name": "claude",
+ "command": "claude",
+ "args": [
+  "--dangerously-skip-permissions"
+ ],
+ "env": {},
+ "cwd": "workspace",
+ "startup_steps": [
+  {
+   "id": "trust",
+   "wait": "Is this a project you created",
+   "keys": [
+    "DOWN",
+    "ENTER"
+   ],
+   "delay_ms": 1200,
+   "timeout_s": 8,
+   "optional": true
+  },
+  {
+   "id": "ready",
+   "wait": "Try \"how does",
+   "timeout_s": 15,
+   "optional": true
+  }
+ ],
+ "prompt": "❯",
+ "settle_ms": 8000,
+ "busy": [
+  "esc to interrupt",
+  "still running",
+  "Percolating",
+  "Fermenting",
+  "shell still running",
+  "background"
+ ],
+ "notes": "Первый запуск в новой папке: trust-промпт. Клик по умолчанию — No, exit, нужен Down+Enter."
+}

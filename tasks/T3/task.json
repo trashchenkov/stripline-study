@@ -1,0 +1,44 @@
+{
+ "id": "T3",
+ "version": "1.0",
+ "title": "Ремонт",
+ "limits": {
+  "messages": 14,
+  "minutes": 30
+ },
+ "final_question": "Как ты обнаружил дефекты и почему они давали правдоподобный, но неверный результат?",
+ "workspace": {
+  "template": "workspace",
+  "readonly": [
+   "spec.md",
+   "AGENTS.md",
+   "docs",
+   "schema"
+  ]
+ },
+ "operator": {
+  "faq": "faq.json",
+  "profile": "A"
+ },
+ "verification": {
+  "public": [
+   "closed",
+   "gaps",
+   "convergence"
+  ],
+  "hidden": "hidden/T3.json"
+ },
+ "deliverable": [
+  "fixed_geometry",
+  "model",
+  "defects",
+  "before_after",
+  "convergence"
+ ],
+ "profiles": [
+  "A",
+  "C"
+ ],
+ "initial_prompt": "Модель рассчитывается, но геометрия и поле неверны. Найди причины, исправь, сохрани замысел: ширина 40, толщина 10, зазоры 6, скругления 1.",
+ "lib": true
+}

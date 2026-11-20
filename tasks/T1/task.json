@@ -1,0 +1,47 @@
+{
+ "id": "T1",
+ "version": "1.0",
+ "title": "С нуля",
+ "limits": {
+  "messages": 14,
+  "minutes": 25
+ },
+ "final_question": "Где максимум поля и почему именно там?",
+ "workspace": {
+  "template": "workspace",
+  "readonly": [
+   "spec.md",
+   "AGENTS.md",
+   "docs",
+   "schema"
+  ]
+ },
+ "operator": {
+  "faq": "faq.json",
+  "profile": "A"
+ },
+ "verification": {
+  "public": [
+   "units",
+   "geometry",
+   "gaps",
+   "conductors",
+   "closed",
+   "convergence"
+  ],
+  "hidden": "hidden/T1.json"
+ },
+ "deliverable": [
+  "geometry",
+  "model",
+  "capacitance",
+  "max_E",
+  "convergence",
+  "rationale"
+ ],
+ "profiles": [
+  "A",
+  "C"
+ ],
+ "initial_prompt": "Спроектируй в поперечном сечении симметричную полосковую линию: проводник 40 × 10 мм, две заземлённые плоскости 100 × 10 мм, зазор 6 мм сверху и снизу, проводник +10 кВ, плоскости 0 В. Рассчитай погонную ёмкость и максимальную напряжённость поля, покажи сеточную сходимость. Сдай геометрию, расчётную модель, результаты и краткое обоснование."
+}

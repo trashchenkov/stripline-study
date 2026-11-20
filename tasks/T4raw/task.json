@@ -1,0 +1,43 @@
+{
+ "id": "T4raw",
+ "version": "1.0",
+ "title": "Конфликт",
+ "limits": {
+  "messages": 10,
+  "minutes": 20
+ },
+ "final_question": "Что именно ограничивает решение и что нужно менять?",
+ "workspace": {
+  "template": "workspace",
+  "readonly": [
+   "spec.md",
+   "AGENTS.md",
+   "geometry.json",
+   "docs",
+   "schema"
+  ]
+ },
+ "operator": {
+  "faq": "faq.json",
+  "profile": "A"
+ },
+ "verification": {
+  "public": [
+   "gaps",
+   "protected"
+  ],
+  "hidden": "hidden/T4raw.json"
+ },
+ "deliverable": [
+  "verdict",
+  "reason_with_numbers",
+  "alternative",
+  "model",
+  "rationale"
+ ],
+ "profiles": [
+  "A",
+  "C"
+ ],
+ "initial_prompt": "Скругли все четыре кромки проводника радиусом 7 мм, сохранив толщину 10 мм. Если при текущих ограничениях это невозможно — объясни с числами и предложи ближайший допустимый вариант."
+}

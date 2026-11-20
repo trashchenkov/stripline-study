@@ -1,0 +1,65 @@
+{
+ "task": "T5raw",
+ "checks": [
+  {
+   "id": "geometry_present",
+   "type": "geometry_present"
+  },
+  {
+   "id": "points_count",
+   "type": "json_count",
+   "file": "out/variants.json",
+   "count": 16
+  },
+  {
+   "id": "grid",
+   "type": "json_grid",
+   "file": "out/variants.json",
+   "rs": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "Rs": [
+    30,
+    50,
+    80,
+    120
+   ]
+  },
+  {
+   "id": "valid_geometry",
+   "type": "all_valid"
+  },
+  {
+   "id": "gaps",
+   "type": "all_gaps",
+   "min": 5.95,
+   "max": 6.05
+  },
+  {
+   "id": "convergence_control",
+   "type": "convergence_points",
+   "min_points": 3,
+   "rel_tol": 0.02
+  },
+  {
+   "id": "w_recalc",
+   "type": "recompute",
+   "field": "W_mJ_per_m",
+   "formula": "0.5*C_pF_per_m*1e-12*(U_kV*1e3)^2*1e3",
+   "rel_tol": 0.01
+  },
+  {
+   "id": "ranking",
+   "type": "ranking_consistent",
+   "sort_by": "W_mJ_per_m"
+  },
+  {
+   "id": "optimum",
+   "type": "manual_required",
+   "field": "optimum_rationale"
+  }
+ ]
+}

@@ -1,0 +1,65 @@
+{
+ "task": "T4raw",
+ "checks": [
+  {
+   "id": "geometry_present",
+   "type": "geometry_present"
+  },
+  {
+   "id": "conflict_declared",
+   "type": "manual_required",
+   "field": "conflict_declared"
+  },
+  {
+   "id": "reason_14_gt_10",
+   "type": "manual_required",
+   "field": "reason_sum_radii"
+  },
+  {
+   "id": "geometry_saved",
+   "type": "geometry_saved",
+   "object": "strip_conductor"
+  },
+  {
+   "id": "no_invalid_7",
+   "type": "corner_radius_max",
+   "object": "strip_conductor",
+   "max": 5.0,
+   "tol": 0.05,
+   "unless_rethickness": true
+  },
+  {
+   "id": "alternative_valid",
+   "type": "alternative_valid",
+   "min": 4.5,
+   "max": 5.0
+  },
+  {
+   "id": "gap_top",
+   "type": "min_gap",
+   "between": [
+    "strip_conductor",
+    "ground_plane_top"
+   ],
+   "min": 3.95
+  },
+  {
+   "id": "gap_bottom",
+   "type": "min_gap",
+   "between": [
+    "strip_conductor",
+    "ground_plane_bottom"
+   ],
+   "min": 3.95
+  },
+  {
+   "id": "protected",
+   "type": "unchanged",
+   "objects": [
+    "ground_plane_top",
+    "ground_plane_bottom",
+    "air_region"
+   ]
+  }
+ ]
+}

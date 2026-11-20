@@ -1,0 +1,86 @@
+{
+ "task": "T2",
+ "checks": [
+  {
+   "id": "geometry_present",
+   "type": "geometry_present"
+  },
+  {
+   "id": "sampling_points",
+   "type": "sampling_points",
+   "offset": 0.05
+  },
+  {
+   "id": "geometry_saved",
+   "type": "geometry_saved",
+   "object": "strip_conductor"
+  },
+  {
+   "id": "radius_range",
+   "type": "corner_radius",
+   "object": "strip_conductor",
+   "corners": "all",
+   "min": 4.25,
+   "max": 4.6,
+   "tol": 0.05
+  },
+  {
+   "id": "radius_matches_result",
+   "type": "radius_matches_result",
+   "object": "strip_conductor",
+   "tol": 0.05
+  },
+  {
+   "id": "max_e",
+   "type": "max",
+   "quantity": "max_E_kV_per_mm",
+   "max": 2.2,
+   "tol_rel": 0.002
+  },
+  {
+   "id": "gap_top",
+   "type": "min_gap",
+   "between": [
+    "strip_conductor",
+    "ground_plane_top"
+   ],
+   "min": 3.95
+  },
+  {
+   "id": "gap_bottom",
+   "type": "min_gap",
+   "between": [
+    "strip_conductor",
+    "ground_plane_bottom"
+   ],
+   "min": 3.95
+  },
+  {
+   "id": "width",
+   "type": "bbox",
+   "object": "strip_conductor",
+   "width": 40.0,
+   "height": 10.0,
+   "tol": 0.05
+  },
+  {
+   "id": "protected",
+   "type": "unchanged",
+   "objects": [
+    "ground_plane_top",
+    "ground_plane_bottom",
+    "air_region"
+   ]
+  },
+  {
+   "id": "convergence",
+   "type": "convergence",
+   "rel_tol": 0.02
+  },
+  {
+   "id": "margin",
+   "type": "reported",
+   "field": "margin_kV_per_mm"
+  }
+ ]
+}

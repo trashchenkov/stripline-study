@@ -1,0 +1,92 @@
+{
+ "solver": "FEMM 4.2, электростатика (ei_*, файл .fee)",
+ "problem": {
+  "type": "planar",
+  "units": "millimeters",
+  "depth_mm": 1000.0,
+  "precision": 1e-08,
+  "min_angle_deg": 30
+ },
+ "materials": {
+  "air": {
+   "ex": 1.0,
+   "ey": 1.0,
+   "qv": 0.0
+  }
+ },
+ "blocks": {
+  "air_region": "air",
+  "strip_conductor": "<No Mesh>",
+  "ground_plane_top": "<No Mesh>",
+  "ground_plane_bottom": "<No Mesh>"
+ },
+ "conductors": {
+  "strip_conductor": {
+   "name": "V_strip",
+   "potential_V": 10000.0
+  },
+  "ground_plane_top": {
+   "name": "V_gnd_top",
+   "potential_V": 0.0
+  },
+  "ground_plane_bottom": {
+   "name": "V_gnd_bottom",
+   "potential_V": 0.0
+  }
+ },
+ "outer_boundary": {
+  "type": "neumann",
+  "text": "нулевая нормальная производная (естественное условие FEMM, свойство границы не назначается)"
+ },
+ "sampling": {
+  "region": {
+   "x0": -30.0,
+   "y0": -19.8,
+   "x1": 30.0,
+   "y1": 1.8
+  },
+  "step_mm": 0.1,
+  "offset_from_conductors_mm": 0.05,
+  "exclude_sharp_corners_radius_mm": 0.5,
+  "text": "max|E| в воздухе в обоих зазорах полосковой линии, не ближе 0.05 мм к электродам; окрестность острых углов (r = 0) радиусом 0.5 мм исключается как искусственная сингулярность"
+ },
+ "control_points": [
+  {
+   "id": "gap_mid_bottom",
+   "x": 0.0,
+   "y": -17.0,
+   "text": "середина нижнего зазора"
+  },
+  {
+   "id": "gap_mid_top",
+   "x": 0.0,
+   "y": -1.0,
+   "text": "середина верхнего зазора"
+  }
+ ],
+ "mesh_levels": [
+  {
+   "level": 1,
+   "boundary_elem_mm": 0.2,
+   "arc_maxseg_deg": 2.5,
+   "air_elem_mm": 4.0
+  },
+  {
+   "level": 2,
+   "boundary_elem_mm": 0.1,
+   "arc_maxseg_deg": 1.0,
+   "air_elem_mm": 2.0
+  },
+  {
+   "level": 3,
+   "boundary_elem_mm": 0.05,
+   "arc_maxseg_deg": 0.5,
+   "air_elem_mm": 1.0
+  }
+ ],
+ "convergence": {
+  "quantity": "max_E",
+  "rel_tol": 0.02,
+  "text": "изменение max|E| между уровнями 2 и 3 не больше 2%; иначе вывод об изменении поля не делается"
+ }
+}

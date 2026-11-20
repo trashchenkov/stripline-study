@@ -1,0 +1,21 @@
+# Формат `geometry.json`
+
+```json
+{
+  "units": "mm",
+  "objects": [
+    {"id": "air_region", "type": "rect", "x0": -60, "y0": -49, "x1": 60, "y1": 31},
+    {"id": "ground_plane_bottom", "type": "rect", "x0": -50, "y0": -30, "x1": 50, "y1": -20},
+    {"id": "strip_conductor", "type": "rounded_rect", "x0": -20, "y0": -14, "x1": 20, "y1": -4,
+     "radii": {"bottom_left": 0.5, "bottom_right": 0.5, "top_right": 0.5, "top_left": 0.5}},
+    {"id": "ground_plane_top", "type": "rect", "x0": -50, "y0": 2, "x1": 50, "y1": 12}
+  ]
+}
+```
+
+Допустимые типы: `rect`, `rounded_rect`, `path`.
+
+- Координаты физические, мм, ось y вверх.
+- `path` — один замкнутый контур из `M/L/H/V/A/Z`, **координаты SVG**, `y_svg = -y`.
+- id обязательны и совпадают с ожидаемыми: `air_region`, `ground_plane_top`, `ground_plane_bottom`, `strip_conductor`.
+- Итоговая геометрия сдаётся в `out/geometry.json` в этом формате.

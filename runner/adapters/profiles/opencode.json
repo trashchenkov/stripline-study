@@ -1,0 +1,27 @@
+{
+ "name": "opencode",
+ "command": "opencode",
+ "args": [
+  "--standalone",
+  "--auto"
+ ],
+ "env": {},
+ "cwd": "workspace",
+ "startup_steps": [
+  {
+   "id": "ready",
+   "wait": "Ask anything",
+   "timeout_s": 30
+  }
+ ],
+ "prompt": "ctrl+p commands",
+ "settle_ms": 1500,
+ "bracketed_paste": false,
+ "busy": [
+  "esc interrupt",
+  "shell still running",
+  "still running",
+  "background"
+ ],
+ "notes": "TUI сильно перерисовывается; нужен экранный эмулятор, одной очистки ANSI мало. --standalone убирает общий сервис."
+}

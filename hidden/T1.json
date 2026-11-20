@@ -1,0 +1,113 @@
+{
+ "task": "T1",
+ "checks": [
+  {
+   "id": "geometry_present",
+   "type": "geometry_present"
+  },
+  {
+   "id": "sampling_points",
+   "type": "sampling_points",
+   "offset": 0.05
+  },
+  {
+   "id": "units",
+   "type": "units",
+   "value": "mm"
+  },
+  {
+   "id": "conductor_size",
+   "type": "bbox",
+   "object": "strip_conductor",
+   "width": 40.0,
+   "height": 10.0,
+   "tol": 0.05
+  },
+  {
+   "id": "radius",
+   "type": "corner_radius",
+   "object": "strip_conductor",
+   "corners": "all",
+   "min": 0.45,
+   "max": 0.55
+  },
+  {
+   "id": "plane_size",
+   "type": "bbox_each",
+   "objects": [
+    "ground_plane_top",
+    "ground_plane_bottom"
+   ],
+   "width": 100.0,
+   "height": 10.0,
+   "tol": 0.05
+  },
+  {
+   "id": "gap_top",
+   "type": "min_gap",
+   "between": [
+    "strip_conductor",
+    "ground_plane_top"
+   ],
+   "min": 5.95
+  },
+  {
+   "id": "gap_bottom",
+   "type": "min_gap",
+   "between": [
+    "strip_conductor",
+    "ground_plane_bottom"
+   ],
+   "min": 5.95
+  },
+  {
+   "id": "gap_balance",
+   "type": "gap_balance",
+   "between": [
+    "strip_conductor",
+    [
+     "ground_plane_top",
+     "ground_plane_bottom"
+    ]
+   ],
+   "tol": 0.1
+  },
+  {
+   "id": "potentials",
+   "type": "potentials",
+   "expected": {
+    "strip_conductor": 10000.0,
+    "ground_plane_top": 0.0,
+    "ground_plane_bottom": 0.0
+   },
+   "tol": 1.0
+  },
+  {
+   "id": "closed",
+   "type": "closed_contours"
+  },
+  {
+   "id": "self_intersections",
+   "type": "no_self_intersections"
+  },
+  {
+   "id": "convergence",
+   "type": "convergence",
+   "rel_tol": 0.02
+  },
+  {
+   "id": "capacitance",
+   "type": "range",
+   "quantity": "C_pF_per_m",
+   "min": 100.0,
+   "max": 180.0
+  },
+  {
+   "id": "max_e",
+   "type": "range",
+   "quantity": "max_E_kV_per_mm",
+   "min": 1.5,
+   "max": 4.5
+  }
+ ]
+}

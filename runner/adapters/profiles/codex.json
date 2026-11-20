@@ -1,0 +1,49 @@
+{
+ "name": "codex",
+ "command": "codex",
+ "args": [
+  "--no-daemon",
+  "--dangerously-bypass-approvals-and-sandbox",
+  "--no-alt-screen"
+ ],
+ "env": {},
+ "cwd": "workspace",
+ "startup_steps": [
+  {
+   "id": "trust",
+   "wait": "Trust this folder",
+   "keys": [
+    "ENTER"
+   ],
+   "timeout_s": 8,
+   "optional": true
+  },
+  {
+   "id": "update",
+   "wait": "Update now",
+   "keys": [
+    "DOWN",
+    "ENTER"
+   ],
+   "timeout_s": 6,
+   "optional": true,
+   "delay_ms": 500
+  },
+  {
+   "id": "ready",
+   "wait": "Ask Codex to do anything",
+   "timeout_s": 40
+  }
+ ],
+ "prompt": "›",
+ "settle_ms": 5000,
+ "busy": [
+  "Working (",
+  "esc to interrupt",
+  "shell still running",
+  "still running",
+  "background"
+ ],
+ "double_enter": true,
+ "notes": "После ввода нужен повторный Enter; иначе сообщение остаётся в буфере. --no-daemon обязателен: иначе TUI подключается к общему app-server и конфликтует с другими вкладками."
+}

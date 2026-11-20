@@ -1,0 +1,44 @@
+{
+ "id": "T5raw",
+ "version": "1.0",
+ "title": "Поверхность",
+ "limits": {
+  "messages": 24,
+  "minutes": 60
+ },
+ "final_question": "Где оптимум и чем ограничен рост энергии?",
+ "workspace": {
+  "template": "workspace",
+  "readonly": [
+   "spec.md",
+   "AGENTS.md",
+   "geometry.json",
+   "docs",
+   "schema"
+  ]
+ },
+ "operator": {
+  "faq": "faq.json",
+  "profile": "A"
+ },
+ "verification": {
+  "public": [
+   "closed",
+   "gaps",
+   "convergence"
+  ],
+  "hidden": "hidden/T5raw.json"
+ },
+ "deliverable": [
+  "variants_json",
+  "plot",
+  "optimum",
+  "convergence",
+  "rationale"
+ ],
+ "profiles": [
+  "A",
+  "C"
+ ],
+ "initial_prompt": "Для перевёрнутого купола построй поверхность W′(r, R) при max|E| = 4 кВ/мм на сетке r × R. Для каждой точки сохрани геометрию, C′, max|E|, допустимое U, W′, число элементов и сходимость. Сдай `variants.json`, график и вывод об оптимуме."
+}

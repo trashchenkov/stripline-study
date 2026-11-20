@@ -1,0 +1,46 @@
+{
+ "id": "T2",
+ "version": "1.0",
+ "title": "Целевая правка",
+ "limits": {
+  "messages": 12,
+  "minutes": 35
+ },
+ "final_question": "Почему этот радиус и какой у него запас по Emax?",
+ "workspace": {
+  "template": "workspace",
+  "readonly": [
+   "spec.md",
+   "AGENTS.md",
+   "geometry.json",
+   "docs",
+   "schema"
+  ]
+ },
+ "operator": {
+  "faq": "faq.json",
+  "profile": "A"
+ },
+ "verification": {
+  "public": [
+   "gaps",
+   "protected",
+   "convergence"
+  ],
+  "hidden": "hidden/T2.json"
+ },
+ "deliverable": [
+  "radius",
+  "sweep_table",
+  "convergence",
+  "model",
+  "rationale",
+  "margin"
+ ],
+ "profiles": [
+  "A",
+  "C"
+ ],
+ "initial_prompt": "Проверь три радиуса скругления кромок проводника: 4.25, 4.4, 4.6 мм. Выбери минимальный, при котором max|E| не превышает 2.2 кВ/мм. Зазор до обеих плоскостей не меньше 4 мм, ширину и плоскости не меняй. Для выбранного покажи сходимость; сдай `out/geometry.json` и `out/result.json`.",
+ "lib": true
+}

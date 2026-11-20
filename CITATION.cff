@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "При использовании материалов укажите обоих авторов статьи и версию репозитория."
+type: dataset
+title: "Материалы к статье «Применение универсальных ИИ-агентов в электростатическом моделировании: границы автономности и достоверность инженерного контроля»"
+authors:
+  - family-names: "Тращенков"
+    given-names: "С. В."
+  - family-names: "Коровкин"
+    given-names: "Н. В."
+repository-code: "https://github.com/trashchenkov/stripline-study"
